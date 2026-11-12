@@ -84,11 +84,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-'hostname' => env_val('DB_HOST'),
-'username' => env_val('DB_USER'),
-'password' => env_val('DB_PASS'),
-'database' => env_val('DB_NAME'),
-'port'     => env_val('DB_PORT', 22215),
+	'hostname' => env_val('mysql-b0a5068-riankasim421-773c.d.aivencloud.com'),
+	'username' => env_val('avnadmin'),
+	'password' => env_val('AVNS_ILTJqiW1W4O8-eTl25I'),
+	'database' => env_val('defaultdb'),
+	'port'     => env_val('DB_PORT') ?: 22215,
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
