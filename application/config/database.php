@@ -1,5 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
+if (!function_exists('env_val')) {
+	function env_val($key, $default = '') {
+		$v = getenv($key);
+		if ($v === false || $v === '') {
+			$v = isset($_SERVER[$key]) ? $_SERVER[$key] : (isset($_ENV[$key]) ? $_ENV[$key] : $default);
+		}
+		return $v;
+	}
+}
 
 /*
 | -------------------------------------------------------------------
@@ -75,11 +84,11 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => getenv('mysql-b0a5068-riankasim421-773c.d.aivencloud.com'),
-	'username' => getenv('avnadmin'),
-	'password' => getenv('AVNS_ILTJqiW1W4O8-eTl25I'),
-	'database' => getenv('defaultdb'),
-	'port'     => getenv('DB_PORT') ?: 22215,
+	'hostname' => env_val('mysql-b0a5068-riankasim421-773c.d.aivencloud.com'),
+	'username' => env_val('avnadmin'),
+	'password' => env_val('AVNS_ILTJqiW1W4O8-eTl25I'),
+	'database' => env_val('defaultdb'),
+	'port'     => env_val('DB_PORT') ?: 22215,
 	'dbdriver' => 'mysqli',
 	'dbprefix' => '',
 	'pconnect' => FALSE,
